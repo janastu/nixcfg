@@ -10,6 +10,8 @@
     # Install Kannada fonts
   };
 
+  i18n.defaultLocale = lib.mkDefault "en_IN.UTF-8";
+
   nix.gc.automatic = lib.mkDefault true;
   # Make regular garbage collections of /nix/store,
   # this is a reasonable default unless you are hacking
