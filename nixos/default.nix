@@ -10,6 +10,11 @@
     # Install Kannada fonts
   };
 
+  nix.gc.automatic = lib.mkDefault true;
+  # Make regular garbage collections of /nix/store,
+  # this is a reasonable default unless you are hacking
+  # on packages.
+
   nixpkgs.overlays = [ (import ../nixpkgs-overlay) ];
   # Add some extra packages not in the NixOS release
 
