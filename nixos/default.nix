@@ -6,7 +6,9 @@
 {
   fonts = {
     enableDefaultFonts = true;
-    fonts = with pkgs; [ gubbi-font navilu-font ];
+    fonts = with pkgs;
+      let lohit = with builtins; filter isAttrs (attrValues lohit-fonts);
+      in lohit ++ [ gubbi-font navilu-font ];
     # Install Kannada fonts
   };
 
