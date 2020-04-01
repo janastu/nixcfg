@@ -11,6 +11,7 @@
     ./hardware-configuration.nix
     ./murmur.nix
     ./nextcloud.nix
+    ./syncthing.nix
   ];
 
   nix.package = pkgs.nixFlakes;
