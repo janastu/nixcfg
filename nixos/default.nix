@@ -34,6 +34,20 @@ with lib;
     mkIfWorkstation = lib.mkIf cfg.workstation.enable;
   in {
 
+    environment.systemPackages = let cfg = config.services.syncthing;
+    in mkIf (cfg.enable) [
+      cfg.package.icons
+      (pkgs.makeDesktopItem {
+        name = "net.syncthing.syncthing-gui";
+        exec = "xdg-open http://${cfg.guiAddress}";
+        icon = "syncthing";
+        comment = "Open Syncthing GUI in a web browser";
+        desktopName = "Syncthing GUI";
+        genericName = "Continuous file synchronization";
+        categories = "System;FileTransfer;Monitor;RemoteAccess";
+      })
+    ];
+
     fonts = mkIfWorkstation {
       enableDefaultFonts = true;
       fonts = with pkgs;
@@ -74,6 +88,15 @@ with lib;
     services.syncthing = let cfg = config.janastu.syncAudioDirectory;
     in lib.mkIf cfg.enable {
       enable = true;
+      package = pkgs.syncthing.overrideAttrs (attrs: {
+        outputs = [ "out" "icons" ];
+        postInstall = ''
+          for res in 32 64 128 256; do
+            install -Dm644 "assets/logo-$res.png" \
+              "$icons/share/icons/hicolor/"$res"x"$res"/apps/syncthing.png"
+          done
+        '';
+      });
       group = lib.mkDefault "users";
       declarative.folders.audio = {
         inherit (cfg) path;
