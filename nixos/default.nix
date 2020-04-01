@@ -7,8 +7,24 @@ with lib;
 {
   # Add Janastu options
 
-  options.janastu.workstation = {
-    enable = mkEnableOption "Whether is a workstation machine";
+  options.janastu = {
+
+    syncAudioDirectory = {
+      enable = mkEnableOption ''
+        Whether to join the Syncthing cluster.
+      '';
+      path = mkOption {
+        type = types.str;
+        default = "/srv/audio";
+        description = ''
+          The path to the folder which should be shared.
+        '';
+      };
+    };
+
+    workstation = {
+      enable = mkEnableOption "Whether is a workstation machine";
+    };
   };
 
   # Apply Janastu configuration
@@ -52,6 +68,31 @@ with lib;
         enable = true;
         addresses = true;
         workstation = cfg.workstation.enable;
+      };
+    };
+
+    services.syncthing = let cfg = config.janastu.syncAudioDirectory;
+    in lib.mkIf cfg.enable {
+      enable = true;
+      group = lib.mkDefault "users";
+      declarative.folders.audio = {
+        inherit (cfg) path;
+        enable = true;
+        devices = [ "thinkcentre" ];
+        # versioning.type = "staggered";
+      };
+      declarative.devices = let transferPort = "22000";
+      in {
+        thinkcentre = {
+          addresses = [
+            "tcp://192.168.1.2:${transferPort}"
+            "tcp://122.166.208.140:${transferPort}"
+          ];
+          id =
+            "D2PSZZB-N7AH2QC-5MGC4QQ-TNVHCXT-VBLUPND-TVHHOA4-QNVD3LM-YC2AHAI";
+          introducer = true;
+          name = "thinkcentre";
+        };
       };
     };
 
