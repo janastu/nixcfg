@@ -9,6 +9,7 @@
     ../../nixos
     ../../nixos/emery.nix
     ./hardware-configuration.nix
+    ./mattermost.nix
     ./murmur.nix
     ./nextcloud.nix
     ./syncthing.nix
