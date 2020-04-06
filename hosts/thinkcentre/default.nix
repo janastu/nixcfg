@@ -8,6 +8,7 @@
   imports = [ # Include the results of the hardware scan.
     ../../nixos
     ../../nixos/emery.nix
+    ../../nixos/dinesh.nix
     ./hardware-configuration.nix
     ./mattermost.nix
     ./murmur.nix
