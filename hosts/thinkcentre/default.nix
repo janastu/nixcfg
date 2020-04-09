@@ -14,6 +14,8 @@
     ./syncthing.nix
   ];
 
+  environment.variables.NIXOPS_STATE = "/etc/nixops/deployments.nixops";
+
   nix.package = pkgs.nixFlakes;
 
   /*
