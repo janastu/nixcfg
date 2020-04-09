@@ -74,11 +74,6 @@ with lib;
     time.timeZone = lib.mkDefault "Asia/Kolkata";
     # Override the default time zone
 
-    security.acme = {
-      acceptTerms = true;
-      email = "janastu@servelots.com";
-    };
-
     services.avahi = mkDefault {
       # Enable mDNS (.local resolution)
       enable = true;
