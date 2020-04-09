@@ -74,6 +74,11 @@ with lib;
     time.timeZone = lib.mkDefault "Asia/Kolkata";
     # Override the default time zone
 
+    security.acme = {
+      acceptTerms = true;
+      email = "janastu@servelots.com";
+    };
+
     services.avahi = mkDefault {
       # Enable mDNS (.local resolution)
       enable = true;
@@ -118,6 +123,14 @@ with lib;
         };
       };
     };
+
+    system.activationScripts.syncAudioDirectory =
+      let cfg = config.janastu.syncAudioDirectory;
+      in mkIf cfg.enable ''
+        mkdir -p "${cfg.path}"
+        chgrp users ${cfg.path}
+        chmod g+wrX -R ${cfg.path}
+      '';
 
   };
 
