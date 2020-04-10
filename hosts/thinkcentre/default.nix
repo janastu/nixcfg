@@ -87,6 +87,9 @@
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
 
+  #security.acme.acceptTerms = true;
+  #security.acme.email = "janastu@servelots.com";
+
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
