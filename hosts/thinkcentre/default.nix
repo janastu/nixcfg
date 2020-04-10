@@ -9,6 +9,8 @@
     ../../nixos
     ../../nixos/emery.nix
     ../../nixos/dinesh.nix
+    ../../nixos/shalini.nix
+    ../../nixos/sanketh.nix
     ./hardware-configuration.nix
     ./murmur.nix
     ./syncthing.nix
