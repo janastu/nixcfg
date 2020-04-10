@@ -69,7 +69,7 @@ with lib;
     nixpkgs.overlays = [ (import ../nixpkgs-overlay) ];
     # Add some extra packages not in the NixOS release
 
-    i18n.defaultLocale = lib.mkDefault "en_IN.UTF-8";
+    i18n.defaultLocale = lib.mkDefault "en_IN";
 
     time.timeZone = lib.mkDefault "Asia/Kolkata";
     # Override the default time zone
