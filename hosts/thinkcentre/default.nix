@@ -11,6 +11,7 @@
     ../../nixos/dinesh.nix
     ../../nixos/shalini.nix
     ../../nixos/sanketh.nix
+    ./jitsi.nix
     ./hardware-configuration.nix
     ./murmur.nix
     ./syncthing.nix
