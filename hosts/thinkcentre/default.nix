@@ -18,14 +18,13 @@
   ];
 
   nix.distributedBuilds = true;
-  nix.buildMachines = [
-    { hostName = "192.168.1.5";
-      system = "aarch64-linux";
-      sshUser = "root";
-      sshKey = "/root/.ssh/id_buildfarm";
-      maxJobs = 2;
-    }
-  ];
+  nix.buildMachines = [{
+    hostName = "192.168.1.6";
+    system = "aarch64-linux";
+    sshUser = "root";
+    sshKey = "/root/.ssh/id_buildfarm";
+    maxJobs = 2;
+  }];
 
   environment.variables.NIXOPS_STATE = "/etc/nixops/deployments.nixops";
 
