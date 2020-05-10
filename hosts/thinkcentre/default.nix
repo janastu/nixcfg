@@ -15,6 +15,7 @@
     ./hardware-configuration.nix
     ./murmur.nix
     ./syncthing.nix
+    ./torrents.nix
     ./yggdrasil.nix
   ];
 
@@ -73,6 +74,7 @@
 
   services.xserver.enable = true;
   services.xserver.desktopManager.mate.enable = true;
+  services.xserver.desktopManager.kodi.enable = true;
   services.xserver.displayManager.lightdm = {
     enable = true;
     autoLogin = {
@@ -84,7 +86,6 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-  services.openssh.permitRootLogin = "no";
   services.openssh.passwordAuthentication = false;
 
   # Open ports in the firewall.
