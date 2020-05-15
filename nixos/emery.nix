@@ -7,8 +7,7 @@ let
   ];
 in {
 
-  networking.firewall.extraCommands =
-    "ip6tables -A INPUT -s 200:3b0f:84ca:1041:eca6:15f8:451d:c1fe -j ACCEPT";
+  nix.trustedUsers = [ "emery" ];
 
   programs = {
     fish.enable = true;
