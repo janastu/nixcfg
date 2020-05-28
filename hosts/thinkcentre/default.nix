@@ -54,7 +54,9 @@
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-  networking.interfaces.enp0s31f6.useDHCP = true;
+  networking.interfaces.eth0.useDHCP = true;
+  networking.usePredictableInterfaceNames = false;
+  # use eth0 instead of enp9asdf
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -140,4 +142,7 @@
     ];
     useDefaultShell = true;
   };
+
+  virtualisation.docker.enable = true;
+
 }

@@ -57,8 +57,7 @@ with lib;
     };
 
     networking.extraHosts = ''
-      205:fe6c:567e:cb71:e831:68ae:4a95:fd2e jitsi.janastu.y
-      205:fe6c:567e:cb71:e831:68ae:4a95:fd2e nextcloud.janastu.y
+      200:f7a7:16f2:2940:3aaa:c5e4:270e:3b11 thinkcenter.y
     '';
 
     nix.gc.automatic = lib.mkDefault true;

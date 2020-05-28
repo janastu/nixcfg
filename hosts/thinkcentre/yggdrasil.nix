@@ -4,7 +4,7 @@ let
   listenPort = 1194;
   address = "200:f7a7:16f2:2940:3aaa:c5e4:270e:3b11";
   prefix = "300:f7a7:16f2:2940:";
-  eth0 = "enp0s31f6";
+  eth0 = "eth0";
 in {
   boot.kernel.sysctl."net.ipv6.conf.all.forwarding" = 1;
 
@@ -16,11 +16,12 @@ in {
   }];
 
   services.radvd = {
-    enable = false;
+    enable = true;
     config = ''
       interface ${eth0}
       {
         AdvSendAdvert on;
+        AdvDefaultLifetime 0;
         prefix ${prefix}:/64 {
                 AdvOnLink on;
                 AdvAutonomous on;
