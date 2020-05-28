@@ -8,5 +8,9 @@
     group = "users";
     guiAddress = "192.168.1.2:8384";
     openDefaultPorts = true;
+    declarative.folders.audio.versioning = {
+      params = {};
+      type = "staggered";
+    };
   };
 }

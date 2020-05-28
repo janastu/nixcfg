@@ -100,8 +100,9 @@ with lib;
       declarative.folders.audio = {
         inherit (cfg) path;
         enable = true;
-        devices = [ "thinkcentre" ];
-        # versioning.type = "staggered";
+        devices =
+          builtins.attrNames config.services.syncthing.declarative.devices;
+        # sync the audio folder with all declared devices
       };
       declarative.devices = let transferPort = "22000";
       in {
@@ -109,12 +110,19 @@ with lib;
           addresses = [
             "tcp://192.168.1.2:${transferPort}"
             "tcp://122.166.208.140:${transferPort}"
+            "tcp://[200:f7a7:16f2:2940:3aaa:c5e4:270e:3b11]:${transferPort}"
           ];
           id =
             "D2PSZZB-N7AH2QC-5MGC4QQ-TNVHCXT-VBLUPND-TVHHOA4-QNVD3LM-YC2AHAI";
           introducer = true;
           name = "thinkcentre";
         };
+        bigpad.id =
+          "OQEGGLY-FG4WZMP-EQ7MYHP-A42CN5F-VLRAR7D-AIF5ESI-SIMNEVI-T2GFDAJ";
+        latitude.id =
+          "HY4Z34G-7HTOCMU-D6HGD6W-3PIPE5N-VK7VENK-JCZYSMV-IT3CXNA-LC2K4AR";
+        "Redmi Note 8 Pro".id =
+          "6JF3U6B-BAOVV2K-O2YEBLS-EZYQAMG-R4K6HNS-UTLD36S-TF36GYS-MZEC6Q2";
       };
     };
 
