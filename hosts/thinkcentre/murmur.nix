@@ -7,6 +7,7 @@ in {
     bonjour = true;
     registerHostname = fqdn;
     registerName = "janastu";
+    hostName = "192.168.1.2";
   };
 
   services.nginx.enable = true;
