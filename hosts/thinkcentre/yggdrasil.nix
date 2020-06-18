@@ -54,4 +54,13 @@ in {
       ];
     };
   };
+
+  services.polipo = {
+    enable = true;
+    allowedClients = [ "200::/8" ];
+    proxyAddress = address;
+  };
+
+  nixpkgs.config.permittedInsecurePackages = [ "polipo-1.1.1" ];
+
 }
