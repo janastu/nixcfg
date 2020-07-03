@@ -15,6 +15,7 @@
     ./file-server.nix
     ./hardware-configuration.nix
     ./murmur.nix
+    ./ldap.nix
     ./syncthing.nix
     ./torrents.nix
     ./yggdrasil.nix
