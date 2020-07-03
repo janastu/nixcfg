@@ -2,18 +2,18 @@
 
 let
   listenPort = 1194;
-  address = "200:f7a7:16f2:2940:3aaa:c5e4:270e:3b11";
-  prefix = "300:f7a7:16f2:2940:";
   eth0 = "eth0";
-in {
+in with (import ./yggaddr.nix); {
   boot.kernel.sysctl."net.ipv6.conf.all.forwarding" = 1;
 
   networking.firewall.allowedTCPPorts = [ listenPort ];
 
-  networking.interfaces.${eth0}.ipv6.addresses = [{
-    address = prefix + ":1";
-    prefixLength = 64;
-  }];
+  networking.interfaces = {
+    ${eth0}.ipv6.addresses = [{
+      address = prefix64 + "::1";
+      prefixLength = 64;
+    }];
+  };
 
   services.radvd = {
     enable = true;
@@ -22,7 +22,7 @@ in {
       {
         AdvSendAdvert on;
         AdvDefaultLifetime 0;
-        prefix ${prefix}:/64 {
+        prefix ${prefix64}::/64 {
                 AdvOnLink on;
                 AdvAutonomous on;
                 };
