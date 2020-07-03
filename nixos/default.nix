@@ -117,12 +117,10 @@ with lib;
           introducer = true;
           name = "thinkcentre";
         };
-        bigpad.id =
-          "OQEGGLY-FG4WZMP-EQ7MYHP-A42CN5F-VLRAR7D-AIF5ESI-SIMNEVI-T2GFDAJ";
+        pantoto.id =
+          "HZZXRZU-SR544XJ-G2VJUZY-XZIFYNE-MLTPOO7-PVKGGID-T33G4DW-Q3HC2QG";
         latitude.id =
           "HY4Z34G-7HTOCMU-D6HGD6W-3PIPE5N-VK7VENK-JCZYSMV-IT3CXNA-LC2K4AR";
-        "Redmi Note 8 Pro".id =
-          "6JF3U6B-BAOVV2K-O2YEBLS-EZYQAMG-R4K6HNS-UTLD36S-TF36GYS-MZEC6Q2";
       };
     };
 
