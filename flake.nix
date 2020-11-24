@@ -1,9 +1,7 @@
 {
   description = "Janastu packages and configurations";
 
-  edition = 201909;
-
-  inputs.nixpkgs.url = "github:nixos/nixpkgs-channels/nixos-20.03";
+  inputs.nixpkgs.url = "github:nixos/nixpkgs/release-20.09";
 
   outputs = { self, nixpkgs }: {
 

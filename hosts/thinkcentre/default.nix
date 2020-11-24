@@ -79,13 +79,10 @@
   services.xserver.enable = true;
   services.xserver.desktopManager.mate.enable = true;
   services.xserver.desktopManager.kodi.enable = true;
-  services.xserver.displayManager.lightdm = {
+  services.xserver.displayManager.lightdm.enable = true;
+  services.xserver.displayManager.autoLogin = {
     enable = true;
-    autoLogin = {
-      enable = true;
-      user = "janastu";
-    };
-
+    user = "janastu";
   };
 
   # Enable the OpenSSH daemon.
